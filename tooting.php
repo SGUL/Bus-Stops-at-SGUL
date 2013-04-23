@@ -3,7 +3,6 @@ class MyStream {
     protected $buffer;
 
     function stream_open($path, $mode, $options, &$opened_path) {
-        // Has to be declared, it seems...
         return true;
     }
 
@@ -24,7 +23,6 @@ class MyStream {
         // Here, do your work with the lines you have in the buffer
         //var_dump($lines);
 	foreach ($lines as $line) {
-		echo $line;
 		$dataarray=explode(",", $line);
 		$StopPointName=$dataarray[1];
 		$StopID=$dataarray[2];
@@ -65,7 +63,6 @@ $json_url = 'http://countdown.api.tfl.gov.uk/interfaces/ura/stream_V1?StopCode1=
 
 
 include('config.php');
-
 // Open the "file"
 $fp = fopen("test://MyTestVariableInMemory", "r+");
 
@@ -78,11 +75,8 @@ curl_setopt($ch, CURLOPT_READFUNCTION, 'read_callback');
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_FILE, $fp);    // Data will be sent to our stream ;-)
-
- 
-curl_exec($ch); // Getting jSON result string
-
+curl_setopt($ch, CURLOPT_FILE, $fp);    
+curl_exec($ch); 
 curl_close($ch);
 fclose($fp);
 
