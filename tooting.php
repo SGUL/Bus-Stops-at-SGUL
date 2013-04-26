@@ -72,6 +72,15 @@ include('config.php');
 $fp = fopen("test://MyTestVariableInMemory", "r+");
 
 // Configuration of curl
+
+# THis is the python
+#	self.conn = pycurl.Curl()
+#	self.conn.setopt(pycurl.HTTPAUTH, pycurl.HTTPAUTH_DIGEST)
+#	self.conn.setopt(pycurl.USERPWD, "%s:%s" % auth )
+#	#self.conn.setopt(pycurl.HTTPHEADER, ['Accept: application/json'])
+#	self.conn.setopt(pycurl.URL, BASE_URI + QUERY_SECTION )
+#	self.conn.setopt(pycurl.WRITEFUNCTION, self.on_receive)
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $json_url);
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
