@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css" />
   
   <!-- scripts at bottom of page -->
-  
+    <script src="jquery-1.9.1.min.js"></script>
 
 </head>
 <body class="demos ">
@@ -40,78 +40,61 @@
 
 
   </section> <!-- #options -->
-  
-  <div id="container" class="clearfix">
+
+    <div id="container" class="clearfix">
   <!-- TODO make the divs here dynamically. Only thing to be accurate needs to be the class for the colour, the rest is straightforward -->  
       
-          
+    <script type="text/javascript">
+    $(function () {
+
+  // Make ajax request
+    // $.ajax({
+        
+    // url: 'ajaxreturn.php',
+    // dataType:'json',
+    // success: function(data) {s
+
+    //         // Get the length of the array returned
+    //     var length = data.length;
+
+        // Walk backward through the array, adding each new item 
+        //    to the top of the container
+        
+            $('<div/>', {class:'element transition metal isotope-item', 'data-symbol':'Hg', 'data-category':'transition'})
+            .append($('<p/>', {class:'number', text:'2 min'}) )
+            .append($('<h3/>', {class:'symbol', text:'W3'}) )
+            .append($('<h2/>', {class:'name', text:'Hunter'}) )
+            .append($('<p/>', {class:'weight', text:'Stop: A'}) )
+            .appendTo('#container' )
+                 // Append new divs to the $container with proper class and data.
+                 // data[length][...] uses the current index stored in the length variable
+                //.append( $('<div/>', {className:'author', text:data[length]['author']} ) )
+                //.append( $('<div/>', {className:'message', text:data[length]['message']} ) )
+                //.append( $('<div/>', {className:'time', text:data[length]['time']} ) )
+
+                 // Prepend $container to the #content div
+            
+      
+    });
+    
+
+    </script>      
+
     <div class="element transition metal   " data-symbol="Hg" data-category="transition">
       <p class="number">due</p>
-      <h3 class="symbol">W3</h3>
+      <h3 class="symbol">W7</h3>
       <h2 class="name">Hunter</h2>
       <p class="weight">Stop: A</p>
     </div>
     
       
-          
-    <div class="element metalloid   " data-symbol="Te" data-category="metalloid">
-      <p class="number">due</p>
-      <h3 class="symbol">184</h3>
-      <h2 class="name">Hunter</h2>
-      <p class="weight">Stop: B</p>
-    </div>
-    
-      
-          
-    <div class="element post-transition metal   " data-symbol="Bi" data-category="post-transition">
-      <p class="number">1 min</p>
-      <h3 class="symbol">W3</h3>
-      <h2 class="name">Jenner</h2>
-      <p class="weight">Stop: K</p>
-    </div>
-    
-      
-          
-    <div class="element transition metal   " data-symbol="Cd" data-category="transition">
-      <p class="number">2 min</p>
-      <h3 class="symbol">W7</h3>
-      <h2 class="name">Rob Lowe</h2>
-      <p class="weight">Stop: FF</p>
-    </div>
-    
-      
-          
-    <div class="element alkaline-earth metal   " data-symbol="Ca" data-category="alkaline-earth">
-      <p class="number">2 min</p>
-      <h3 class="symbol">144</h3>
-      <h2 class="name">Lanesborough</h2>
-      <p class="weight">Stop: L</p>
-    </div>
-    
-      
-          
-    <div class="element transition metal   " data-symbol="Re" data-category="transition">
-      <p class="number">4 min</p>
-      <h3 class="symbol">91</h3>
-      <h2 class="name">Lanesborough</h2>
-      <p class="weight">Stop: SY</p>
-    </div>
-    
-      
-          
-    <div class="element post-transition metal   " data-symbol="Tl" data-category="post-transition">
-      <p class="number">6 min</p>
-      <h3 class="symbol">77</h3>
-      <h2 class="name">Atkinson</h2>
-      <p class="weight">J</p>
-    </div>
-    
+         
       
           
     
   </div> <!-- #container -->
   
-  <script src="jquery-1.9.1.min.js"></script>
+ 
   <script src="jquery.isotope.min.js"></script>
   <script>
     $(function(){
@@ -177,7 +160,7 @@
 
     
     <footer>
-      Isotope by <a href="http://desandro.com">David DeSandro</a> / <a href="http://metafizzy.co">Metafizzy</a>
+      Developed by: <a href="http://twitter.com/sgul">SGUL I.T.</a> - <a href="http://github.com/sgul/Bus-Stops-at-SGUL">Code on GitHub</a> | Data: <a href="http://tfl.gov.uk">Transport for London</a> | Design: <a href="http://metafizzy.co">Isotope</a>
     </footer>
     
   </section> <!-- #content -->

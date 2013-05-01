@@ -7,6 +7,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "www/sorting.html",
+			"settings":
+			{
+				"buffer_size": 5687,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -32,10 +40,17 @@
 	},
 	"file_history":
 	[
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/www/sorting.html",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.php",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.php.example",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/ajaxreturn.php",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/php_tests/config.php",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/tooting.py",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/config.py"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -49,6 +64,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"elf"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -66,8 +82,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "www/sorting.html",
+					"settings":
+					{
+						"buffer_size": 5687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3451,
+								3451
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1530.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -77,7 +122,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
