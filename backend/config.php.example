@@ -1,0 +1,9 @@
+<?php
+
+$MYSQLHOST='';
+$MYSQLUSER='';
+$MYSQLPASS='';
+$MYSQLDBNAME='';
+
+
+?>
