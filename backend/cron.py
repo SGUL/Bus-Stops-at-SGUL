@@ -21,7 +21,6 @@ class Client:
 	self.conn.perform()
 	
   def on_receive(self, data):
-  	print data
   	self.buffer += data
 	# Handle complete line
 	if data.endswith("]") and self.buffer.strip():
