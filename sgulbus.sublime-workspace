@@ -7,27 +7,19 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "www/sorting.html",
-			"settings":
-			{
-				"buffer_size": 5687,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 153.0
 	},
 	"distraction_free":
 	{
@@ -41,9 +33,13 @@
 	"file_history":
 	[
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/www/sorting.html",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/README.md",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/ajaxreturn.php",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/cron.py",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/.gitignore",
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.py",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.php",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.php.example",
-		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/ajaxreturn.php",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/php_tests/config.php",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/tooting.py",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/config.py"
@@ -64,6 +60,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
 			"elf"
 		],
 		"highlight": true,
@@ -82,37 +79,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "www/sorting.html",
-					"settings":
-					{
-						"buffer_size": 5687,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3451,
-								3451
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1530.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
