@@ -25,6 +25,7 @@ while ($row = mysql_fetch_assoc ( $result )) {
 	$out['stopname'] = $row['stopname'];
 	$out['busname'] = $row['busname'];
 	$out['timestamp'] = $row['timestamp'];
+	$out['destination'] = $row['destination'];
 	$dict[] = $out;
 }
 
