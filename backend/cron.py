@@ -1,5 +1,4 @@
-import pycurl, simplejson, datetime
-import MySQLdb
+import pycurl, simplejson, datetime, MySQLdb, re
 from config import USER, PASS, STOPLIST, MYSQLHOST, MYSQLUSER, MYSQLPASS, MYSQLDBNAME
 
 BASE_URI = 'http://countdown.api.tfl.gov.uk/interfaces/ura/stream_V1'
@@ -22,6 +21,7 @@ class Client:
 	self.conn.perform()
 	
   def on_receive(self, data):
+  	print data
   	self.buffer += data
 	# Handle complete line
 	if data.endswith("]") and self.buffer.strip():
@@ -34,8 +34,9 @@ class Client:
 					try:
 					    con = MySQLdb.connect(host=MYSQLHOST, user=MYSQLUSER, passwd=MYSQLPASS, db=MYSQLDBNAME)
 					    if row[8] <> 0:
-						#[1, 'Alexandra Palace Station', '77501', 'W3', 'Nthumberland Pk', 624, 'LJ61CHX', 1367321689000, 1367321689000]
-						query="""REPLACE INTO predictions(stopid, vehicleid, stopname, timestamp, busname) VALUES ('%s', '%s', '%s', %s, '%s');""" % (row[2], row[6], row[1], row[7], row[3])
+							#[1,"St George's Hospital / Lanesborough Wing","57302","493","Richmond",9226,"SN12AUY",1367490314000,1367490314000]
+							query="""REPLACE INTO predictions(stopid, vehicleid, stopname, timestamp, busname, destination) 
+VALUES ('%s', '%s', '%s', %s, '%s', '%s');""" % (row[2], row[6], re.escape(row[1]), row[7], row[3], re.escape(row[4]))
 					    else:
 				  	        query="""DELETE FROM predictions WHERE stopid='%s' and vehicleid='%s';""" % (row[2], row[6])
 					    cur = con.cursor()
