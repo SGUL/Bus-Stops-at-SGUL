@@ -20,6 +20,8 @@ $query = "SELECT * from predictions;";
 $result = mySQLquery($query);
 
 $dict = array();
+$dict['time'] =  mktime();
+$dict['buses'] = array();
 while ($row = mysql_fetch_assoc ( $result )) {
 	$out = array();
 	$out['stopid'] = $row['stopid'];
@@ -28,7 +30,7 @@ while ($row = mysql_fetch_assoc ( $result )) {
 	$out['busname'] = $row['busname'];
 	$out['timestamp'] = $row['timestamp'];
 	$out['destination'] = $row['destination'];
-	$dict[] = $out;
+	$dict['buses'][] = $out;
 }
 
 
