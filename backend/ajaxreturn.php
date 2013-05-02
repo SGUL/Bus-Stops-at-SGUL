@@ -1,11 +1,13 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');
 
 function mySQLquery($query) {
 	include('config.php');
-	mysql_connect($MYSQLHOST, $MYSQLUSER, $MYSQLPASS) or die(mysql_error()." | HOST ".$DB_HOST." USER ".$DB_USER." PASS ".$DB_PASS ." NAME ".$DB_NAME." | Error on connect ");
-	mysql_select_db($MYSQLDBNAME) or die(mysql_error()." | HOST ".$DB_HOST." USER ".$DB_USER." PASS ".$DB_PASS ." NAME ".$DB_NAME." | Error on select db ");
+	mysql_connect($MYSQLHOST, $MYSQLUSER, $MYSQLPASS) or die(mysql_error()." | HOST ".$MYSQLHOST." USER ".$MYSQLUSER." PASS ".$MYSQLPASS ." NAME ".$MYSQLDBNAME." | Error on connect ");
+	mysql_select_db($MYSQLDBNAME) or die(mysql_error()." | HOST ".$MYSQLHOST." USER ".$MYSQLUSER." PASS ".$MYSQLPASS ." NAME ".$MYSQLDBNAME." | Error on select db ");
 
-	$result = mysql_query("$query") or die(mysql_error()." | HOST ".$DB_HOST." USER ".$DB_USER." PASS ".$DB_PASS ." NAME ".$DB_NAME. " | Error on query " );
+	$result = mysql_query("$query") or die(mysql_error()." | HOST ".$MYSQLHOST." USER ".$MYSQLUSER." PASS ".$MYSQLPASS ." NAME ".$MYSQLDBNAME. " | Error on query " );
 
 	// keeps getting the next row until there are no more to get
 	#while($row = mysql_fetch_array( $result )) {
