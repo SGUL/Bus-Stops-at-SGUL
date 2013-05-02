@@ -47,45 +47,48 @@
     <script type="text/javascript">
     $(document).ready(function () {
 
-  // Make ajax request
-    // $.ajax({
+    // Make ajax request
+    $.ajax({
         
-    // url: 'ajaxreturn.php',
-    // dataType:'json',
-    // success: function(data) {s
+     url: 'http://cusetup-203.sgul.ac.uk/ajaxreturn.php',
+     dataType:'json',
+     success: function(data) {
+            //var items = [];
+            //$.each(data, function () {
+            //   items.push('<li>' + this.vehicleid + '</li>');
+            //});
 
-    //         // Get the length of the array returned
-    //     var length = data.length;
+            var mytime = data.time * 1000;
+            $.each(data.buses, function () {
+                
+                var mydiv = $('<div>', {class:'element transition mental', 'data-symbol':"Hg", 'data-category':"transition"})
+                          .append($('<p/>', {class:'number', text:Math.floor((this.timestamp - mytime)/1000/60) + 'min'}))
+                          .append($('<h3/>', {class:'symbol', text:this.busname}))
+                          .append($('<h2/>', {class:'name', text:this.destination}))
+                          .append($('<p/>', {class:'weight', text:this.stopname}))
+                          .appendTo('#container');
+                  
+            });
+           
 
-        // Walk backward through the array, adding each new item 
-        //    to the top of the container
-        
-            $('<div/>', {class:'element transition metal isotope-item', 'data-symbol':'Hg', 'data-category':'transition'})
-            .append($('<p/>', {class:'number', text:'2 min'}) )
-            .append($('<h3/>', {class:'symbol', text:'W3'}) )
-            .append($('<h2/>', {class:'name', text:'Hunter'}) )
-            .append($('<p/>', {class:'weight', text:'Stop: A'}) )
-            .appendTo('#container' )
-                 // Append new divs to the $container with proper class and data.
-                 // data[length][...] uses the current index stored in the length variable
-                //.append( $('<div/>', {className:'author', text:data[length]['author']} ) )
-                //.append( $('<div/>', {className:'message', text:data[length]['message']} ) )
-                //.append( $('<div/>', {className:'time', text:data[length]['time']} ) )
 
-                 // Prepend $container to the #content div
+            //$('<ul/>', { html: items.join('') }).appendTo('#container');
+
+            //$('<div/>', {class:'test'}).append($('<p/>', {text:"a"})).appendTo('#container');
+
             
       
-    });
+    }});})
     
 
     </script>      
 
-    <div class="element transition metal   " data-symbol="Hg" data-category="transition">
+     <div class="element transition metal   " data-symbol="Hg" data-category="transition">
       <p class="number">due</p>
       <h3 class="symbol">W7</h3>
       <h2 class="name">Hunter</h2>
       <p class="weight">Stop: A</p>
-    </div>
+    </div> 
     
       
          
