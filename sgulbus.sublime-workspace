@@ -3,19 +3,75 @@
 	{
 		"selected_items":
 		[
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"append",
+				"appendTo"
+			],
+			[
+				"appen",
+				"appendTo"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "backend/ajaxreturn.php",
+			"settings":
+			{
+				"buffer_size": 1339,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/sorting.html",
+			"settings":
+			{
+				"buffer_size": 5625,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 96.0,
 		"selected_items":
 		[
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git commit",
+				"Git: Commit history"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git pu",
+				"Git: Push"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Github: Open File"
+			],
+			[
+				"pack insta",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 392.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -32,11 +88,11 @@
 	},
 	"file_history":
 	[
+		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/.gitignore",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/www/sorting.html",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/README.md",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/ajaxreturn.php",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/cron.py",
-		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/.gitignore",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.py",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.php",
 		"/homedirs3/sghms/cunit/users/gsollazz/Desktop/DEV/Bus-Stops-at-SGUL/backend/config.php.example",
@@ -60,6 +116,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"DB_",
 			"print",
 			"elf"
 		],
@@ -69,6 +126,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"MYSQL"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -79,8 +137,65 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "backend/ajaxreturn.php",
+					"settings":
+					{
+						"buffer_size": 1339,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1081,
+								1081
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "www/sorting.html",
+					"settings":
+					{
+						"buffer_size": 5625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2996,
+								2996
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1574.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -115,9 +230,13 @@
 		]
 	},
 	"menu_visible": true,
+	"output.git":
+	{
+		"height": 124.0
+	},
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
