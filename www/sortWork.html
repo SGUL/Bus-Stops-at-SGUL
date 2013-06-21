@@ -3,7 +3,7 @@
 <head>
   
   <meta charset="utf-8" />
-  <title>Sorting &middot; Isotope Demo</title>
+  <title>Next buses</title>
   
  
   
@@ -54,7 +54,7 @@
   <div id="container" class="clearfix">
     
 
-   <!--    
+    <!--   
           
     <div class="element transition metal   " data-symbol="Hg" data-category="transition">
       <p class="number">80</p>
@@ -194,36 +194,38 @@
       <h3 class="symbol">Aca</h3>
       <h2 class="name">Asadsa</h2>
       <p class="weight">AA</p>
-    </div> -->
-
+    </div>
+  -->
   </div> <!-- #container -->
   
  <script src="jquery-1.9.1.min.js"></script>
   <script src="jquery.isotope.min.js"></script>
     <script>
-  function doWhat() {
+  function doSort() {
     //$(function(){
       
       var $container = $('#container');
       
+
+
       $container.isotope({
         itemSelector : '.element',
         getSortData : {
-          symbol : function( $elem ) {
-            return $elem.attr('data-symbol');
-          },
-          category : function( $elem ) {
-            return $elem.attr('data-category');
-          },
+          //symbol : function( $elem ) {
+          //  return $elem.attr('data-symbol');
+          //},
+          //category : function( $elem ) {
+          //  return $elem.attr('data-category');
+          //},
           number : function( $elem ) {
             return parseInt( $elem.find('.number').text(), 10 );
           },
-          weight : function( $elem ) {
-            return parseFloat( $elem.find('.weight').text().replace( /[\(\)]/g, '') );
-          },
-          name : function ( $elem ) {
-            return $elem.find('.name').text();
-          }
+          //weight : function( $elem ) {
+          // return parseFloat( $elem.find('.weight').text().replace( /[\(\)]/g, '') );
+          //},
+          //name : function ( $elem ) {
+          //  return $elem.find('.name').text();
+          //}
         }
       });
       
@@ -266,7 +268,7 @@
         // Make ajax request
     $.ajax({
         
-     url: 'http://cusetup-203.sgul.ac.uk/ajaxreturn.php',
+     url: 'http://cusetup-054.sgul.ac.uk/ajaxreturn.php',
      async:'false',
      dataType:'json',
      success: function(data) {
@@ -278,39 +280,45 @@
             var mytime = data.time * 1000;
             $.each(data.buses, function () {
                 var div_id = this.stopid + this.vehicleid;
+                
                 if($("#" + div_id).length == 0) {
                   //it doesn't exist
+                  var due = Math.floor((this.timestamp - mytime)/1000/60);
+                  if (due > 0) {
                   var mydiv = $('<div>', {'id':div_id, class:'element actinoid metal', 'data-symbol':this.busname, 'data-category':"actinoid"})
                     .append($('<p/>', {class:'number', text:Math.floor((this.timestamp - mytime)/1000/60)}))
                     .append($('<h3/>', {class:'symbol', text:this.busname}))
                     .append($('<h2/>', {class:'name', text:this.destination}))
                     .append($('<p/>', {class:'weight', text:this.stopname}))
                     .appendTo('#container');
+                  }
                 } else {
                   // element exists so we need to update the values
                   $("#"+div_id)
-                    .append($('<p/>', {class:'number', text:Math.floor((this.timestamp - mytime)/1000/60)}))
+                    .empty();
+
+                  var due = Math.floor((this.timestamp - mytime)/1000/60);
+                  if (due > 0) {
+                  $("#"+div_id)
+                    .append($('<p/>', {class:'number', text:due}))
                     .append($('<h3/>', {class:'symbol', text:this.busname}))
                     .append($('<h2/>', {class:'name', text:this.destination}))
                     .append($('<p/>', {class:'weight', text:this.stopname}))
                     .appendTo('#container');
-                    // TODO here you need to replace values, not append!
-                    // then you need to verify that doWhat works without duplicating position, etc.
+                  } else {
+                    // remove div
+                    $("#"+div_id).remove();
+                  }
+                    
                 }
                 
+
                 
                   
             });
-            doWhat();
+            doSort();
 
-            //TODO 
-            // 1. delete no longer needed buses
-            // 2. add new
-            // 3. update those already in
-            // 4. arrange for css
-            //
-            // 
-           
+         
             
           
     }});
@@ -318,19 +326,15 @@
 
       </script>
 
-  <script type="text/javascript">
+    <!--script type="text/javascript">
       $(document).ready(function () {
-          var interval = setInterval(function() {getBusData(); }, 10000);
-          //getBusData();
-    
-});
-    
-  
+          var interval = setInterval(function() {getBusData(); }, 5000);
+        });
+    </script-->      
 
-    </script>      
-    
+    <input type="button" value="Reload" onclick="getBusData();"/>
     <footer>
-      Isotope by <a href="http://desandro.com">David DeSandro</a> / <a href="http://metafizzy.co">Metafizzy</a>
+     Based upon Isotope by <a href="http://desandro.com">David DeSandro</a> / <a href="http://metafizzy.co">Metafizzy</a> | Implemented by <a href="http://github.com/sgul">SGUL Computing Services</a>
     </footer>
     
   </section> <!-- #content -->
