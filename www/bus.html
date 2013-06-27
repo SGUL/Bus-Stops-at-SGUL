@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Next buses</title>
+  
+ 
+  
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- scripts at bottom of page -->
+  
+
+</head>
+<body class="demos ">
+  
+ 
+  
+  <section id="content">
+    
+      <h1>Live Buses @ SGUL</h1>
+    
+
+      <section id="copy">
+  
+  </section>
+  
+  <section id="options" class="clearfix">
+    
+    
+    <h3>Filter</h3>
+    <ul id="filters">
+      <li><a href="#" data-filter="*">All</a></li>
+      <li><a href="#" data-filter=".57640">Kiln Mews</a></li>
+      <li><a href="#" data-filter=".48141">St George's Hospital (A)</a></li>
+      <li><a href="#" data-filter=".50618">St George's Hospital (B)</a></li>
+      <li><a href="#" data-filter=".47087">Cranmer Terrace</a></li>
+    </ul>
+
+
+
+
+  </section> <!-- #options -->
+  
+  <div id="container" class="clearfix">
+    
+
+
+  </div> <!-- #container -->
+  
+ <script src="jquery-1.9.1.min.js"></script>
+  <script src="jquery.isotope.js"></script>
+  <script>
+
+    
+
+      function getBusData() {
+        // Make ajax request
+    $.ajax({
+        
+     url: 'http://cusetup-054.sgul.ac.uk/ajaxreturn.php',
+     async:'false',
+     dataType:'json',
+     success: function(data) {
+            //var items = [];
+            //$.each(data, function () {
+            //   items.push('<li>' + this.vehicleid + '</li>');
+            //});
+
+            var mytime = data.time * 1000;
+            $.each(data.buses, function () {
+                var div_id = this.stopid + this.vehicleid;
+
+                if($("#" + div_id).length == 0) {
+                  //it doesn't exist
+                  var due = Math.floor((this.timestamp - mytime)/1000/60);
+                  if (due > 0) {
+                    var classforcolour = 'element actinoid metal ';
+                    if (due > 5) {
+                      classforcolour = 'element actinoid metal ';
+                    }
+                    if (due > 10) {
+                      classforcolour = 'element alkaline-earth metal ';
+                    }
+                    if (due > 20 ){
+                      classforcolour = 'element noble-gas nonmetal ';
+                    }
+                    classforcolour = classforcolour + this.stopid;
+                  var mydiv = $('<div>', {'id':div_id, class:classforcolour, 'data-symbol':this.busname, 'data-category':"actinoid"})
+                    .append($('<p/>', {class:'number', text:Math.floor((this.timestamp - mytime)/1000/60)}))
+                    .append($('<h3/>', {class:'symbol', text:this.busname}))
+                    .append($('<h2/>', {class:'name', text:this.destination}))
+                    .append($('<p/>', {class:'weight', text:this.stopname}))
+                    .appendTo('#container');
+                  }
+                } else {
+                  // element exists so we need to update the values
+                  $("#"+div_id)
+                    .empty();
+
+                  var due = Math.floor((this.timestamp - mytime)/1000/60);
+                  if (due > 0) {
+                  
+                    // TODO: you need to edit value of existing class
+                    $("#"+div_id)
+                      .append($('<p/>', {class:'number', text:due}))
+                      .append($('<h3/>', {class:'symbol', text:this.busname}))
+                      .append($('<h2/>', {class:'name', text:this.destination}))
+                      .append($('<p/>', {class:'weight', text:this.stopname}))
+                      .appendTo('#container');
+                    } else {
+                      // remove div
+                      $("#"+div_id).remove();
+                    }
+                    
+                  }
+                
+
+                
+                  
+            });
+
+         
+
+
+            (function(){
+              var $container = $('#container');
+
+              //$container.isotope({
+              //  itemSelector: '.element'
+              //});
+            
+              if(!$container.hasClass('isotope')){
+                $container.isotope({
+                  itemSelector: '.element'                  
+                });
+              } else {
+                $container.isotope('destroy');
+                $container.isotope({
+                   itemSelector: '.element'
+                 });
+            }
+
+            });
+            var $container = $('#container');
+            $('#filters a').click(function(){
+              var selector = $(this).attr('data-filter');
+              $container.isotope({ filter: selector });
+              return false;
+             });
+    }});
+      }
+
+      </script>
+
+    <!--script type="text/javascript">
+      $(document).ready(function () {
+          var interval = setInterval(function() {getBusData(); }, 5000);
+        });
+    </script-->      
+
+    <input type="button" value="Reload" onclick="getBusData();"/>
+    <footer>
+     Based upon Isotope by <a href="http://desandro.com">David DeSandro</a> / <a href="http://metafizzy.co">Metafizzy</a> | Implemented by <a href="http://github.com/sgul">SGUL Computing Services</a>
+    </footer>
+    
+  </section> <!-- #content -->
+
+  
+
+</body>
+</html>
