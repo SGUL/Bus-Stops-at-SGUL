@@ -28,8 +28,16 @@
   
   <section id="options" class="clearfix">
     
-    
-    <h3>Filter</h3>
+    <!--input type="button" value="Reload" onclick="getBusData();"/-->
+
+
+    <!--
+    Plan
+      1. alter ajaxreturn to accept list of stops
+      2. use filters here
+      3. global variable to be passed to jquery
+    -->
+    <h3>Bus stops</h3>
     <ul id="filters">
       <li><a href="#" data-filter="*">All</a></li>
       <li><a href="#" data-filter=".57640">Kiln Mews</a></li>
@@ -40,26 +48,38 @@
 
 
 
-
   </section> <!-- #options -->
   
-  <div id="container" class="clearfix">
-    
-
-
-  </div> <!-- #container -->
+  <div id="container" class="clearfix"/> 
   
  <script src="jquery-1.9.1.min.js"></script>
   <script src="jquery.isotope.js"></script>
   <script>
+var $container = $('#container');
+            $('#filters a').click(function(){
 
-    
+              var selector = $(this).attr('data-filter');
+
+              selector = selector.substring(1);
+              if (selector == "")
+                $url = 'http://cusetup-054.sgul.ac.uk/ajaxreturn2.php';
+              else
+                $url = 'http://cusetup-054.sgul.ac.uk/ajaxreturn2.php?stopid='+selector;
+
+              getBusData();
+
+             });
+
+</script>
+  <script>
+
+    var $url = 'http://cusetup-054.sgul.ac.uk/ajaxreturn2.php';
 
       function getBusData() {
         // Make ajax request
     $.ajax({
         
-     url: 'http://cusetup-054.sgul.ac.uk/ajaxreturn.php',
+     url: $url,
      async:'false',
      dataType:'json',
      success: function(data) {
@@ -67,6 +87,20 @@
             //$.each(data, function () {
             //   items.push('<li>' + this.vehicleid + '</li>');
             //});
+        
+            // TODO WARNING
+            // I empty container because of bug
+            // https://github.com/desandro/isotope/issues/386
+
+
+            var $container = $('#container');
+
+            //$container.isotope('destroy');
+            $container.empty();
+
+            // THIS CAN GO WHEN BUG IS RESOLVED
+            // --end
+
 
             var mytime = data.time * 1000;
             $.each(data.buses, function () {
@@ -88,10 +122,10 @@
                     }
                     classforcolour = classforcolour + this.stopid;
                   var mydiv = $('<div>', {'id':div_id, class:classforcolour, 'data-symbol':this.busname, 'data-category':"actinoid"})
-                    .append($('<p/>', {class:'number', text:Math.floor((this.timestamp - mytime)/1000/60)}))
+                    .append($('<p/>', {class:'number', text:Math.floor((this.timestamp - mytime)/1000/60)+" min"}))
                     .append($('<h3/>', {class:'symbol', text:this.busname}))
-                    .append($('<h2/>', {class:'name', text:this.destination}))
-                    .append($('<p/>', {class:'weight', text:this.stopname}))
+                    .append($('<h2/>', {class:'name', text:"Stop: "+this.stopname}))
+                    .append($('<p/>', {class:'weight', text:"To: "+this.destination}))
                     .appendTo('#container');
                   }
                 } else {
@@ -143,12 +177,7 @@
             }
 
             });
-            var $container = $('#container');
-            $('#filters a').click(function(){
-              var selector = $(this).attr('data-filter');
-              $container.isotope({ filter: selector });
-              return false;
-             });
+            
     }});
       }
 
@@ -156,11 +185,12 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
+          getBusData();
           var interval = setInterval(function() {getBusData(); }, 5000);
         });
     </script>      
 
-    <input type="button" value="Reload" onclick="getBusData();"/>
+    
     <footer>
      Based upon Isotope by <a href="http://desandro.com">David DeSandro</a> / <a href="http://metafizzy.co">Metafizzy</a> | Implemented by <a href="http://github.com/sgul">SGUL Computing Services</a>
     </footer>

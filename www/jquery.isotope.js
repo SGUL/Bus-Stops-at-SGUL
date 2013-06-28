@@ -346,7 +346,7 @@
       queue: false,
       duration: 800
     },
-    sortBy : 'original-order',
+    //sortBy : 'original-order',
     sortAscending : true,
     resizesContainer : true,
     transformsEnabled: true,
