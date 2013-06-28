@@ -213,8 +213,8 @@ body {
 
 .element .name {
   left: 0.5em;
-  bottom: 1.6em;
-  font-size: 0.95em;
+  bottom: 2em;
+  font-size: 0.75em;
 }
 
 .element .weight {
